@@ -3,37 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tennis_Kata
 {
-    public class TennisGame
-    {
-        public int TheScoreOfFirstPlayer { get; set; }
-        public int TheScoreOfSecondPlayer { get; set; }
-
-        public string GetResult()
-        {
-            var result = "";
-            switch (TheScoreOfFirstPlayer)
-            {
-                case 0 when TheScoreOfSecondPlayer == 0:
-                    result = "Love-All";
-                    break;
-
-                case 1 when TheScoreOfSecondPlayer == 0:
-                    result = "Fifteen-Love";
-                    break;
-
-                case 2 when TheScoreOfSecondPlayer == 0:
-                    result = "Thirty-Love";
-                    break;
-
-                case 3 when TheScoreOfSecondPlayer == 0:
-                    result = "Forty-Love";
-                    break;
-            }
-
-            return result;
-        }
-    }
-
     [TestClass]
     public class TennisGameUnitTest
     {
@@ -42,8 +11,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Fifteen_Love()
         {
-            _tennisGame.TheScoreOfFirstPlayer = 1;
-            _tennisGame.TheScoreOfSecondPlayer = 0;
+            _tennisGame.SetPlayerScore(1, 0);
 
             Assert.AreEqual(_tennisGame.GetResult(), "Fifteen-Love");
         }
@@ -51,8 +19,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Forty_Love()
         {
-            _tennisGame.TheScoreOfFirstPlayer = 3;
-            _tennisGame.TheScoreOfSecondPlayer = 0;
+            _tennisGame.SetPlayerScore(3, 0);
 
             Assert.AreEqual(_tennisGame.GetResult(), "Forty-Love");
         }
@@ -60,17 +27,39 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_All()
         {
-            _tennisGame.TheScoreOfFirstPlayer = 0;
-            _tennisGame.TheScoreOfSecondPlayer = 0;
+            _tennisGame.SetPlayerScore(0, 0);
 
             Assert.AreEqual(_tennisGame.GetResult(), "Love-All");
         }
 
         [TestMethod]
+        public void Love_Fifteen()
+        {
+            _tennisGame.SetPlayerScore(0, 1);
+
+            Assert.AreEqual(_tennisGame.GetResult(), "Love-Fifteen");
+        }
+
+        [TestMethod]
+        public void Love_Forty()
+        {
+            _tennisGame.SetPlayerScore(0, 3);
+
+            Assert.AreEqual(_tennisGame.GetResult(), "Love-Forty");
+        }
+
+        [TestMethod]
+        public void Love_Thirty()
+        {
+            _tennisGame.SetPlayerScore(0, 2);
+
+            Assert.AreEqual(_tennisGame.GetResult(), "Love-Thirty");
+        }
+
+        [TestMethod]
         public void Thirty_Love()
         {
-            _tennisGame.TheScoreOfFirstPlayer = 2;
-            _tennisGame.TheScoreOfSecondPlayer = 0;
+            _tennisGame.SetPlayerScore(2, 0);
 
             Assert.AreEqual(_tennisGame.GetResult(), "Thirty-Love");
         }
