@@ -11,44 +11,44 @@
             switch (TheScoreOfFirstPlayer)
             {
                 case 0 when TheScoreOfSecondPlayer == 0:
-                    result = "Love-All";
+                    result = GameState.LoveAll.ToString();
                     break;
 
                 case 1 when TheScoreOfSecondPlayer == 0:
-                    result = "Fifteen-Love";
+                    result = GameState.FifteenLove.ToString();
                     break;
 
                 case 2 when TheScoreOfSecondPlayer == 0:
-                    result = "Thirty-Love";
+                    result = GameState.ThirtyLove.ToString();
                     break;
 
                 case 3 when TheScoreOfSecondPlayer == 0:
-                    result = "Forty-Love";
+                    result = GameState.FortyLove.ToString();
                     break;
 
                 case 0 when TheScoreOfSecondPlayer == 1:
-                    result = "Love-Fifteen";
+                    result = GameState.LoveFifTeen.ToString();
                     break;
 
                 case 0 when TheScoreOfSecondPlayer == 2:
-                    result = "Love-Thirty";
+                    result = GameState.LoveThirty.ToString();
                     break;
 
                 case 0 when TheScoreOfSecondPlayer == 3:
-                    result = "Love-Forty";
+                    result = GameState.LoveForty.ToString();
                     break;
 
                 case 1 when TheScoreOfSecondPlayer == 1:
-                    result = "Fifteen-All";
+                    result = GameState.FifteenAll.ToString();
                     break;
 
                 case 2 when TheScoreOfSecondPlayer == 2:
-                    result = "Thirty-All";
+                    result = GameState.ThirtyAll.ToString();
                     break;
 
                 case 3 when TheScoreOfSecondPlayer == 3:
                 case 4 when TheScoreOfSecondPlayer == 4:
-                    result = "Deuce";
+                    result = GameState.Deuce.ToString();
                     break;
             }
 

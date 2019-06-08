@@ -13,7 +13,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(3, 3);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Deuce");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.Deuce.ToString());
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(4, 4);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Deuce");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.Deuce.ToString());
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(1, 1);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Fifteen-All");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.FifteenAll.ToString());
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(1, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Fifteen-Love");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.FifteenLove.ToString());
         }
 
         [TestMethod]
@@ -45,7 +45,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(3, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Forty-Love");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.FortyLove.ToString());
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Love-All");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveAll.ToString());
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 1);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Love-Fifteen");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveFifTeen.ToString());
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 3);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Love-Forty");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveForty.ToString());
         }
 
         [TestMethod]
@@ -77,7 +77,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 2);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Love-Thirty");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveThirty.ToString());
         }
 
         [TestMethod]
@@ -85,7 +85,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(2, 2);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Thirty-All");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.ThirtyAll.ToString());
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(2, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), "Thirty-Love");
+            Assert.AreEqual(_tennisGame.GetResult(), GameState.ThirtyLove.ToString());
         }
     }
 }
