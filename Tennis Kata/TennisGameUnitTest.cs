@@ -13,7 +13,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(3, 3);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.Deuce.ToString());
+            Assert.AreEqual(GameState.Deuce.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(4, 4);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.Deuce.ToString());
+            Assert.AreEqual(GameState.Deuce.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(1, 1);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.FifteenAll.ToString());
+            Assert.AreEqual(GameState.FifteenAll.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -37,7 +37,27 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(1, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.FifteenLove.ToString());
+            Assert.AreEqual(GameState.FifteenLove.ToString(), _tennisGame.GetResult());
+        }
+
+        [TestMethod]
+        public void FirstPlayer_Advance()
+        {
+            _tennisGame.SetPlayerScore(4, 3);
+
+            var expected = _tennisGame.FirstPlayer.Name + GameState.Advance.ToString();
+
+            Assert.AreEqual(expected, _tennisGame.GetResult());
+        }
+
+        [TestMethod]
+        public void FirstPlayer_Win()
+        {
+            _tennisGame.SetPlayerScore(5, 3);
+
+            var expected = _tennisGame.FirstPlayer.Name + GameState.Win.ToString();
+
+            Assert.AreEqual(expected, _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -45,7 +65,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(3, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.FortyLove.ToString());
+            Assert.AreEqual(GameState.FortyLove.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -53,7 +73,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveAll.ToString());
+            Assert.AreEqual(GameState.LoveAll.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -61,7 +81,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 1);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveFifTeen.ToString());
+            Assert.AreEqual(GameState.LoveFifTeen.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -69,7 +89,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 3);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveForty.ToString());
+            Assert.AreEqual(GameState.LoveForty.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -77,7 +97,27 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(0, 2);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.LoveThirty.ToString());
+            Assert.AreEqual(GameState.LoveThirty.ToString(), _tennisGame.GetResult());
+        }
+
+        [TestMethod]
+        public void SecondPlayer_Advance()
+        {
+            _tennisGame.SetPlayerScore(3, 4);
+
+            var expected = _tennisGame.SecondPlayer.Name + GameState.Advance.ToString();
+
+            Assert.AreEqual(expected, _tennisGame.GetResult());
+        }
+
+        [TestMethod]
+        public void SecondPlayer_Win()
+        {
+            _tennisGame.SetPlayerScore(3, 5);
+
+            var expected = _tennisGame.SecondPlayer.Name + GameState.Win.ToString();
+
+            Assert.AreEqual(expected, _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -85,7 +125,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(2, 2);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.ThirtyAll.ToString());
+            Assert.AreEqual(GameState.ThirtyAll.ToString(), _tennisGame.GetResult());
         }
 
         [TestMethod]
@@ -93,7 +133,7 @@ namespace Tennis_Kata
         {
             _tennisGame.SetPlayerScore(2, 0);
 
-            Assert.AreEqual(_tennisGame.GetResult(), GameState.ThirtyLove.ToString());
+            Assert.AreEqual(GameState.ThirtyLove.ToString(), _tennisGame.GetResult());
         }
     }
 }

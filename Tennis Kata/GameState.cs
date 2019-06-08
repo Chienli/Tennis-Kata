@@ -11,6 +11,8 @@
         LoveForty,
         FifteenAll,
         ThirtyAll,
-        Deuce
+        Deuce,
+        Advance,
+        Win
     }
 }
