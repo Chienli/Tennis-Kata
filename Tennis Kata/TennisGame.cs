@@ -37,6 +37,19 @@
                 case 0 when TheScoreOfSecondPlayer == 3:
                     result = "Love-Forty";
                     break;
+
+                case 1 when TheScoreOfSecondPlayer == 1:
+                    result = "Fifteen-All";
+                    break;
+
+                case 2 when TheScoreOfSecondPlayer == 2:
+                    result = "Thirty-All";
+                    break;
+
+                case 3 when TheScoreOfSecondPlayer == 3:
+                case 4 when TheScoreOfSecondPlayer == 4:
+                    result = "Deuce";
+                    break;
             }
 
             return result;
