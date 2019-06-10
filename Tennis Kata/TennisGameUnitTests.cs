@@ -13,7 +13,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(3);
             SecondPlayerGetTimesPoints(3);
-            Assert.AreEqual("Deuce", _tennis.Score());
+
+            ScoreShouldBe("Deuce");
         }
 
         [TestMethod]
@@ -21,7 +22,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(1);
             SecondPlayerGetTimesPoints(1);
-            Assert.AreEqual("Fifteen_All", _tennis.Score());
+
+            ScoreShouldBe("Fifteen_All");
         }
 
         [TestMethod]
@@ -29,7 +31,7 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(1);
 
-            Assert.AreEqual("Fifteen_Love", _tennis.Score());
+            ScoreShouldBe("Fifteen_Love");
         }
 
         [TestMethod]
@@ -37,7 +39,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(4);
             SecondPlayerGetTimesPoints(3);
-            Assert.AreEqual("Guy_Adv", _tennis.Score());
+
+            ScoreShouldBe("Guy_Adv");
         }
 
         [TestMethod]
@@ -45,7 +48,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(5);
             SecondPlayerGetTimesPoints(3);
-            Assert.AreEqual("Guy_Win", _tennis.Score());
+
+            ScoreShouldBe("Guy_Win");
         }
 
         [TestMethod]
@@ -53,20 +57,21 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(3);
 
-            Assert.AreEqual("Forty_Love", _tennis.Score());
+            ScoreShouldBe("Forty_Love");
         }
 
         [TestMethod]
         public void Love_All()
         {
-            Assert.AreEqual("Love_All", _tennis.Score());
+            ScoreShouldBe("Love_All");
         }
 
         [TestMethod]
         public void Love_Fifteen()
         {
             SecondPlayerGetTimesPoints(1);
-            Assert.AreEqual("Love_Fifteen", _tennis.Score());
+
+            ScoreShouldBe("Love_Fifteen");
         }
 
         [TestMethod]
@@ -74,7 +79,7 @@ namespace Tennis_Kata
         {
             SecondPlayerGetTimesPoints(3);
 
-            Assert.AreEqual("Love_Forty", _tennis.Score());
+            ScoreShouldBe("Love_Forty");
         }
 
         [TestMethod]
@@ -82,7 +87,7 @@ namespace Tennis_Kata
         {
             SecondPlayerGetTimesPoints(2);
 
-            Assert.AreEqual("Love_Thirty", _tennis.Score());
+            ScoreShouldBe("Love_Thirty");
         }
 
         [TestMethod]
@@ -90,7 +95,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(3);
             SecondPlayerGetTimesPoints(4);
-            Assert.AreEqual("Jay_Adv", _tennis.Score());
+
+            ScoreShouldBe("Jay_Adv");
         }
 
         [TestMethod]
@@ -98,7 +104,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(3);
             SecondPlayerGetTimesPoints(5);
-            Assert.AreEqual("Jay_Win", _tennis.Score());
+
+            ScoreShouldBe("Jay_Win");
         }
 
         [TestMethod]
@@ -106,7 +113,8 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(2);
             SecondPlayerGetTimesPoints(2);
-            Assert.AreEqual("Thirty_All", _tennis.Score());
+
+            ScoreShouldBe("Thirty_All");
         }
 
         [TestMethod]
@@ -114,7 +122,7 @@ namespace Tennis_Kata
         {
             FirstPlayerGetTimesPoints(2);
 
-            Assert.AreEqual("Thirty_Love", _tennis.Score());
+            ScoreShouldBe("Thirty_Love");
         }
 
         private void FirstPlayerGetTimesPoints(int times)
@@ -123,6 +131,11 @@ namespace Tennis_Kata
             {
                 _tennis.FirstPlayerGetPoint();
             }
+        }
+
+        private void ScoreShouldBe(string expected)
+        {
+            Assert.AreEqual(expected, _tennis.Score());
         }
 
         private void SecondPlayerGetTimesPoints(int times)
