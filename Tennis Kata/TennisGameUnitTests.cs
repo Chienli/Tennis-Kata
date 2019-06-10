@@ -11,7 +11,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Fifteen_Love()
         {
-            _tennis.SecondPlayerGetPoint();
+            FirstPlayerGetTimesPoints(1);
 
             Assert.AreEqual("Fifteen_Love", _tennis.Score());
         }
@@ -19,7 +19,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Forty_Love()
         {
-            SecondPlayerGetTimesPoints(3);
+            FirstPlayerGetTimesPoints(3);
 
             Assert.AreEqual("Forty_Love", _tennis.Score());
         }
@@ -33,14 +33,14 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Fifteen()
         {
-            _tennis.FirstPlayerGetPoint();
+            SecondPlayerGetTimesPoints(1);
             Assert.AreEqual("Love_Fifteen", _tennis.Score());
         }
 
         [TestMethod]
         public void Love_Forty()
         {
-            FirstPlayerGetTimesPoints(3);
+            SecondPlayerGetTimesPoints(3);
 
             Assert.AreEqual("Love_Forty", _tennis.Score());
         }
@@ -48,7 +48,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Thirty()
         {
-            FirstPlayerGetTimesPoints(2);
+            SecondPlayerGetTimesPoints(2);
 
             Assert.AreEqual("Love_Thirty", _tennis.Score());
         }
@@ -56,7 +56,7 @@ namespace Tennis_Kata
         [TestMethod]
         public void Thirty_Love()
         {
-            SecondPlayerGetTimesPoints(2);
+            FirstPlayerGetTimesPoints(2);
 
             Assert.AreEqual("Thirty_Love", _tennis.Score());
         }
