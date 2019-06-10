@@ -1,7 +1,16 @@
-﻿namespace Tennis_Kata
+﻿using System.Collections.Generic;
+
+namespace Tennis_Kata
 {
     public class TennisGame
     {
+        private readonly Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>
+        {
+            {1,"Fifteen"},
+            {2,"Thirty"},
+            {3,"Forty"}
+        };
+
         private int _firstPlayerScore;
 
         public void FirstPlayerGetPoint()
@@ -11,17 +20,9 @@
 
         public string Score()
         {
-            if (_firstPlayerScore == 1)
+            if (_firstPlayerScore != 0)
             {
-                return "Love_Fifteen";
-            }
-            if (_firstPlayerScore == 2)
-            {
-                return "Love_Thirty";
-            }
-            if (_firstPlayerScore == 3)
-            {
-                return "Love_Forty";
+                return $"Love_{_scoreLookUp[_firstPlayerScore]}";
             }
 
             return "Love_All";
