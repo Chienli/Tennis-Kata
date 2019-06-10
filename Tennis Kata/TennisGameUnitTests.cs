@@ -94,6 +94,14 @@ namespace Tennis_Kata
         }
 
         [TestMethod]
+        public void SecondPlayer_Win()
+        {
+            FirstPlayerGetTimesPoints(3);
+            SecondPlayerGetTimesPoints(5);
+            Assert.AreEqual("Jay_Win", _tennis.Score());
+        }
+
+        [TestMethod]
         public void Thirty_All()
         {
             FirstPlayerGetTimesPoints(2);
