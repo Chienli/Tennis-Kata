@@ -24,6 +24,11 @@ namespace Tennis_Kata
         {
             if (IsSame())
             {
+                if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3)
+                {
+                    return "Deuce";
+                }
+
                 return $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
             return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
