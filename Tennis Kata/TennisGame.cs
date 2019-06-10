@@ -13,8 +13,16 @@ namespace Tennis_Kata
             {3,"Forty"}
         };
 
+        private string _firstPlayerName;
         private int _firstPlayerScore;
+        private string _secondPlayerName;
         private int _secondPlayerScore;
+
+        public TennisGame(string firstPlayerName, string secondPlayerName)
+        {
+            _firstPlayerName = firstPlayerName;
+            _secondPlayerName = secondPlayerName;
+        }
 
         public void FirstPlayerGetPoint()
         {
@@ -40,8 +48,10 @@ namespace Tennis_Kata
                     {
                         if (_firstPlayerScore > _secondPlayerScore)
                         {
-                            return "Guy_Adv";
+                            return $"{_firstPlayerName}_Adv";
                         }
+
+                        return $"{_secondPlayerName}_Adv";
                     }
                 }
 

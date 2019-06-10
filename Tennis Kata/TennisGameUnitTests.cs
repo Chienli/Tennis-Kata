@@ -6,7 +6,7 @@ namespace Tennis_Kata
     [TestClass]
     public class TennisGameUnitTests
     {
-        private readonly TennisGame _tennis = new TennisGame();
+        private readonly TennisGame _tennis = new TennisGame("Guy", "Jay");
 
         [TestMethod]
         public void Deuce()
@@ -75,6 +75,14 @@ namespace Tennis_Kata
             SecondPlayerGetTimesPoints(2);
 
             Assert.AreEqual("Love_Thirty", _tennis.Score());
+        }
+
+        [TestMethod]
+        public void SecondPlayer_Advance()
+        {
+            FirstPlayerGetTimesPoints(3);
+            SecondPlayerGetTimesPoints(4);
+            Assert.AreEqual("Jay_Adv", _tennis.Score());
         }
 
         [TestMethod]
