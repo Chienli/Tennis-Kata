@@ -12,6 +12,7 @@ namespace Tennis_Kata
         };
 
         private int _firstPlayerScore;
+        private int _secondPlayerScore;
 
         public void FirstPlayerGetPoint()
         {
@@ -24,8 +25,17 @@ namespace Tennis_Kata
             {
                 return $"Love_{_scoreLookUp[_firstPlayerScore]}";
             }
+            if (_secondPlayerScore == 1)
+            {
+                return "Fifteen_Love";
+            }
 
             return "Love_All";
+        }
+
+        public void SecondPlayerGetPoint()
+        {
+            _secondPlayerScore++;
         }
     }
 }
