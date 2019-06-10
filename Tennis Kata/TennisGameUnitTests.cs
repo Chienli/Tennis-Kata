@@ -62,6 +62,14 @@ namespace Tennis_Kata
         }
 
         [TestMethod]
+        public void Thirty_All()
+        {
+            FirstPlayerGetTimesPoints(2);
+            SecondPlayerGetTimesPoints(2);
+            Assert.AreEqual("Thirty_All", _tennis.Score());
+        }
+
+        [TestMethod]
         public void Thirty_Love()
         {
             FirstPlayerGetTimesPoints(2);
