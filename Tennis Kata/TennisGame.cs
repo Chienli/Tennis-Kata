@@ -53,6 +53,11 @@ namespace Tennis_Kata
 
                         return $"{_secondPlayerName}_Adv";
                     }
+
+                    if (_firstPlayerScore > _secondPlayerScore)
+                    {
+                        return $"{_firstPlayerName}_Win";
+                    }
                 }
 
                 return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
