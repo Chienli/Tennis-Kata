@@ -9,6 +9,14 @@ namespace Tennis_Kata
         private readonly TennisGame _tennis = new TennisGame();
 
         [TestMethod]
+        public void Fifteen_All()
+        {
+            FirstPlayerGetTimesPoints(1);
+            SecondPlayerGetTimesPoints(1);
+            Assert.AreEqual("Fifteen_All", _tennis.Score());
+        }
+
+        [TestMethod]
         public void Fifteen_Love()
         {
             FirstPlayerGetTimesPoints(1);
