@@ -15,6 +15,10 @@
             {
                 return "Love_Fifteen";
             }
+            if (_firstPlayerScore == 2)
+            {
+                return "Love_Thirty";
+            }
 
             return "Love_All";
         }
