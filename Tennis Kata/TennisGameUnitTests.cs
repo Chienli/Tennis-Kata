@@ -33,6 +33,14 @@ namespace Tennis_Kata
         }
 
         [TestMethod]
+        public void FirstPlayer_Advance()
+        {
+            FirstPlayerGetTimesPoints(4);
+            SecondPlayerGetTimesPoints(3);
+            Assert.AreEqual("Guy_Adv", _tennis.Score());
+        }
+
+        [TestMethod]
         public void Forty_Love()
         {
             FirstPlayerGetTimesPoints(3);

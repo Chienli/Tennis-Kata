@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Tennis_Kata
 {
@@ -24,14 +25,28 @@ namespace Tennis_Kata
         {
             if (IsSame())
             {
-                if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3)
+                if (_firstPlayerScore >= 3)
                 {
                     return "Deuce";
                 }
 
                 return $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
-            return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
+            else
+            {
+                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
+                {
+                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
+                    {
+                        if (_firstPlayerScore > _secondPlayerScore)
+                        {
+                            return "Guy_Adv";
+                        }
+                    }
+                }
+
+                return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
+            }
         }
 
         public void SecondPlayerGetPoint()
