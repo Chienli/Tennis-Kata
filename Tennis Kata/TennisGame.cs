@@ -22,26 +22,21 @@ namespace Tennis_Kata
 
         public string Score()
         {
-            if (_firstPlayerScore != _secondPlayerScore)
+            if (IsSame())
             {
-                return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
+                return $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
-
-            if (_firstPlayerScore == 1)
-            {
-                return "Fifteen_All";
-            }
-            if (_firstPlayerScore == 2)
-            {
-                return "Thirty_All";
-            }
-
-            return "Love_All";
+            return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
         }
 
         public void SecondPlayerGetPoint()
         {
             _secondPlayerScore++;
+        }
+
+        private bool IsSame()
+        {
+            return _firstPlayerScore == _secondPlayerScore;
         }
     }
 }
