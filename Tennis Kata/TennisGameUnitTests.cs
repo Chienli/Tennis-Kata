@@ -3,14 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tennis_Kata
 {
-    public class TennisGame
-    {
-        public string Score()
-        {
-            return "Love_All";
-        }
-    }
-
     [TestClass]
     public class TennisGameUnitTests
     {
@@ -20,6 +12,13 @@ namespace Tennis_Kata
         public void Love_All()
         {
             Assert.AreEqual("Love_All", _tennis.Score());
+        }
+
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            _tennis.FirstPlayerGetPoint();
+            Assert.AreEqual("Love_Fifteen", _tennis.Score());
         }
     }
 }
