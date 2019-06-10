@@ -17,6 +17,14 @@ namespace Tennis_Kata
         }
 
         [TestMethod]
+        public void Forty_Love()
+        {
+            SecondPlayerGetTimesPoints(3);
+
+            Assert.AreEqual("Forty_Love", _tennis.Score());
+        }
+
+        [TestMethod]
         public void Love_All()
         {
             Assert.AreEqual("Love_All", _tennis.Score());
@@ -63,7 +71,7 @@ namespace Tennis_Kata
 
         private void SecondPlayerGetTimesPoints(int times)
         {
-            for (int i = 0; i < times; i++)
+            for (var i = 0; i < times; i++)
             {
                 _tennis.SecondPlayerGetPoint();
             }
