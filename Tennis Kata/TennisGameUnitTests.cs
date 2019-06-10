@@ -24,10 +24,17 @@ namespace Tennis_Kata
         [TestMethod]
         public void Love_Thirty()
         {
-            _tennis.FirstPlayerGetPoint();
-            _tennis.FirstPlayerGetPoint();
+            FirstPlayerGetTimesPoints(2);
 
             Assert.AreEqual("Love_Thirty", _tennis.Score());
+        }
+
+        private void FirstPlayerGetTimesPoints(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennis.FirstPlayerGetPoint();
+            }
         }
     }
 }
