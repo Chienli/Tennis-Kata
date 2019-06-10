@@ -5,6 +5,8 @@ namespace Tennis_Kata
 {
     public class TennisGame
     {
+        private readonly string _firstPlayerName;
+
         private readonly Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>
         {
             {0,"Love"},
@@ -13,9 +15,8 @@ namespace Tennis_Kata
             {3,"Forty"}
         };
 
-        private string _firstPlayerName;
+        private readonly string _secondPlayerName;
         private int _firstPlayerScore;
-        private string _secondPlayerName;
         private int _secondPlayerScore;
 
         public TennisGame(string firstPlayerName, string secondPlayerName)
@@ -33,32 +34,13 @@ namespace Tennis_Kata
         {
             if (IsSame())
             {
-                if (_firstPlayerScore >= 3)
-                {
-                    return "Deuce";
-                }
-
-                return $"{_scoreLookUp[_firstPlayerScore]}_All";
+                return IsDeuce() ? "Deuce" : $"{_scoreLookUp[_firstPlayerScore]}_All";
             }
             else
             {
-                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
+                if (IsGamePoint())
                 {
-                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
-                    {
-                        if (_firstPlayerScore > _secondPlayerScore)
-                        {
-                            return $"{_firstPlayerName}_Adv";
-                        }
-
-                        return $"{_secondPlayerName}_Adv";
-                    }
-
-                    if (_firstPlayerScore > _secondPlayerScore)
-                    {
-                        return $"{_firstPlayerName}_Win";
-                    }
-                    return $"{_secondPlayerName}_Win";
+                    return IsAdvance() ? $"{GetAdvanceName()}_Adv" : $"{GetAdvanceName()}_Win";
                 }
 
                 return $"{_scoreLookUp[_firstPlayerScore]}_{_scoreLookUp[_secondPlayerScore]}";
@@ -68,6 +50,28 @@ namespace Tennis_Kata
         public void SecondPlayerGetPoint()
         {
             _secondPlayerScore++;
+        }
+
+        private string GetAdvanceName()
+        {
+            var advanceName = _firstPlayerScore > _secondPlayerScore ? _firstPlayerName : _secondPlayerName;
+
+            return advanceName;
+        }
+
+        private bool IsAdvance()
+        {
+            return Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1;
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private bool IsGamePoint()
+        {
+            return _firstPlayerScore > 3 || _secondPlayerScore > 3;
         }
 
         private bool IsSame()
